@@ -1,23 +1,68 @@
 <!DOCTYPE html>
 
+
 <head>
-  <title>Best of Summer 2019</title>
-  <link rel="stylesheet" type="text/css" href="css.css" />
-  <script src="js.js"></script>
-  <script src="jquery-3.4.1.min.js"></script>
+
+  <title></title>
+
+  <meta charset="utf-8" />
+
+  <script src="js/jquery-1.11.1.min.js"></script>
+
+  <style>
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #fff;
+      margin: 0px;
+      cursor: crosshair !important;
+      background-size: 300px 100px;
+
+      -webkit-animation: slide 5s linear infinite;
+    }
+
+    @-webkit-keyframes slide {
+      from {
+        background-position: 0 0;
+      }
+
+      to {
+        background-position: -300px 0;
+      }
+    }
+
+    #theimage_container {
+      position: absolute;
+      width: auto;
+      height: 100%;
+      /*border:1px solid #555;*/
+    }
+
+    #noise {
+      position: fixed;
+      z-index: 3000;
+      width: 100%;
+      height: 100%;
+      opacity: 0.2;
+      pointer-events: none;
+      background-image: url('assets/noise4.gif');
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <img class="alex" src="assets/Alex01.jpg">
-  <img class="alex" src="assets/Alex02.jpg">
-  <img class="alex" src="assets/Alex03.jpg">
-  <img class="alex" src="assets/Alex04.jpg">
-  <img class="alex" src="assets/Alex05.jpg">
-  <img class="alex" src="assets/Alex06.jpg">
+  <div id="noise"></div>
 
+  <div id="theimage_container" class="centerxy">
+    <img src="assets/Alex01.jpg" height="100%" id="theimage">
+  </div>
 
-
-  <p>HI ALEX</p>
+  <script src="js.js"></script>
 
 </body>
+
+</html>
