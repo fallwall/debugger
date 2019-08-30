@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slide from './Slide';
 import RightArrow from './RightArrow';
 import LeftArrow from './LeftArrow';
+import Sync from './Sync';
 
 const allimages = [
   'https://i.imgur.com/HatWGp5.jpg',
@@ -60,10 +61,7 @@ export default class Slider extends Component {
   }
 
   componentDidMount = () => {
-    const images = this.shuffle(allimages);
-    this.setState({
-      images: images
-    })
+    this.randomize();
   }
 
 
@@ -93,17 +91,28 @@ export default class Slider extends Component {
     }
   }
 
+  randomize = () => {
+    const images = this.shuffle(allimages);
+    this.setState({
+      images: images
+    })
+  }
+
   render() {
     return (
       <div className="slider">
-        <p>slider</p>
+        <p className="slider-title">FLAWLESS</p>
         <div className="slider-wrapper">
           <Slide image={this.state.images[this.state.currentIndex]} />
         </div>
-        <LeftArrow
-          prevSlide={this.prevSlide} />
-        <RightArrow
-          nextSlide={this.nextSlide} />
+        <div className="slider-icons">
+          <LeftArrow
+            prevSlide={this.prevSlide} />
+          <Sync
+            randomize={this.randomize} />
+          <RightArrow
+            nextSlide={this.nextSlide} />
+        </div>
       </div >
     )
   }
