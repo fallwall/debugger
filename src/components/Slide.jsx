@@ -5,7 +5,7 @@ const Slide = ({ image }) => {
     <div className="slide" >
       <img className="slide-current" src={image} />
     </div>
-  ) 
+  )
 }
 
 export default Slide;
