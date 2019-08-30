@@ -33,7 +33,13 @@ const allimages = [
   'https://i.imgur.com/hMfKJCr.jpg',
   'https://i.imgur.com/5r0VWeL.jpg',
   'https://i.imgur.com/GvW2ntq.jpg',
-  'https://i.imgur.com/Y8A8Us4.jpg'
+  'https://i.imgur.com/Y8A8Us4.jpg',
+  'https://i.imgur.com/Fz0WyR9.jpg',
+  'https://i.imgur.com/V65IHFW.jpg',
+  'https://i.imgur.com/eEaqAwG.jpg',
+  'https://i.imgur.com/91zQr0U.jpg',
+  'https://i.imgur.com/Mh7czOG.jpg',
+  'https://i.imgur.com/Mo5IhOn.jpg'
 ]
 
 export default class Slider extends Component {
@@ -61,16 +67,30 @@ export default class Slider extends Component {
   }
 
 
-  nextSlide = () => {
-    this.setState(prevState => ({
-      currentIndex: prevState.currentIndex + 1
-    }))
+  nextSlide = (ev) => {
+    ev.preventDefault();
+    if (this.state.currentIndex !== this.state.images.length - 1) {
+      this.setState(prevState => ({
+        currentIndex: prevState.currentIndex + 1
+      }))
+    } else {
+      this.setState({
+        currentIndex: 0
+      })
+    }
   }
 
-  prevSlide = () => {
-    this.setState(prevState => ({
-      currentIndex: prevState.currentIndex - 1
-    }))
+  prevSlide = (ev) => {
+    ev.preventDefault();
+    if (this.state.currentIndex !== 0) {
+      this.setState(prevState => ({
+        currentIndex: prevState.currentIndex - 1
+      }))
+    } else {
+      this.setState({
+        currentIndex: this.state.images.length - 1
+      })
+    }
   }
 
   render() {
@@ -80,10 +100,10 @@ export default class Slider extends Component {
         <div className="slider-wrapper">
           <Slide image={this.state.images[this.state.currentIndex]} />
         </div>
-      <LeftArrow
-        prevSlide={this.prevSlide} />
-      <RightArrow
-        nextSlide={this.nextSlide} />
+        <LeftArrow
+          prevSlide={this.prevSlide} />
+        <RightArrow
+          nextSlide={this.nextSlide} />
       </div >
     )
   }

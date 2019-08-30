@@ -3,7 +3,7 @@ import React from 'react';
 const LeftArrow = (props) => {
   return (
     <div className="backArrow" onClick={props.prevSlide}>
-      <i className="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+      <i aria-hidden="true" class="arrow alternate circle left massive icon"></i>
     </div>
   )
 }
