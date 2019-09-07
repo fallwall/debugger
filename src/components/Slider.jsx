@@ -40,7 +40,9 @@ const allimages = [
   'https://i.imgur.com/eEaqAwG.jpg',
   'https://i.imgur.com/91zQr0U.jpg',
   'https://i.imgur.com/Mh7czOG.jpg',
-  'https://i.imgur.com/Mo5IhOn.jpg'
+  'https://i.imgur.com/Mo5IhOn.jpg',
+  'https://i.imgur.com/XF6HhSh.jpg',
+  'https://i.imgur.com/lhKc4DY.jpg',
 ]
 
 export default class Slider extends Component {
